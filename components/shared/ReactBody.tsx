@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 interface BodyProps {
@@ -42,33 +42,60 @@ const ReactBody: React.FC<BodyProps> = ({
     callToAction,
     animate = false,
 }) => {
+const [isVisible, setIsVisible] = useState(false);
+    const componentRef = useRef<HTMLDivElement>(null);
     const contentOrder = layout === 'text-left' ? 'order-1' : 'order-2';
     const imageOrder = layout === 'text-left' ? 'order-2' : 'order-1';
 
+    useEffect(() => {
+        if (typeof window !== 'undefined' && animate) {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                        observer.disconnect();
+                    }
+                },
+                {
+                    threshold: 0.1
+                }
+            );
+
+            if (componentRef.current) {
+                observer.observe(componentRef.current);
+            }
+
+            return () => {
+                observer.disconnect();
+            };
+        }
+    }, [animate]);
+    const animationClass = animate && isVisible ? 'fade-in' : 'opacity-0';
+    const imageAnimationClass = animate && isVisible ? 'fade-in-delay' : 'opacity-0';
+
     return (
-        <section className={` neuton-regular py-16 ${backgroundColor} ${containerClassName}`}>
+        <section 
+            ref={componentRef}
+            className={`neuton-regular  py-16 ${backgroundColor} ${containerClassName}`}
+        >
             <div className={`mx-auto px-4 sm:px-6 lg:px-8 ${contentWidth}`}>
                 <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
                     <div className={`lg:w-full ${contentOrder}`}>
                         <h2 
-                            className={`text-3xl md:text-4xl font-bold ${titleColor} ${titleClassName} ${
-                                animate ? 'animate-fade-in' : ''
-                            }`}
+                            className={`text-3xl md:text-4xl font-bold ${titleColor} ${titleClassName} ${animationClass}`}
                         >
                             {title}
                         </h2>
                         {showDivider && (
-                            <div className="w-20 h-1 bg-[#63a6ca] my-6" />
+                            <div className={`w-20 h-1 bg-[#63a6ca] my-6 ${animationClass}`} />
                         )}
                         <p 
-                            className={`mt-4 text-lg ${descriptionColor} ${descriptionClassName} ${
-                                animate ? 'animate-fade-in-delay' : ''
-                            }`}
+                            className={`mt-4 text-lg ${descriptionColor} ${descriptionClassName} ${animationClass}`}
                         >
                             {description}
                         </p>
                         {callToAction && (
-                            <div className="mt-8">
+                            <div className={`mt-8 ${animationClass}`}>
                                 {callToAction}
                             </div>
                         )}
@@ -82,9 +109,7 @@ const ReactBody: React.FC<BodyProps> = ({
                                     alt={imageAlt}
                                     width={imageWidth}
                                     height={imageHeight}
-                                    className={`rounded-lg shadow-lg ${
-                                        animate ? 'animate-fade-in-delay' : ''
-                                    }`}
+                                    className={`rounded-lg ${imageAnimationClass}`}
                                 />
                             </div>
                         </div>

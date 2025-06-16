@@ -7,15 +7,15 @@ export default function Home() {
   return (
   <>
      <Header
-      title="A CLEAR VIEW OF YOUR"
-      title2="FINANCIAL FUTURE"
+      title="A CLEAR VIEW OF"
+      title2="YOUR FINANCIAL FUTURE"
       subtitle="Learn more about our mission and team."
       className=""
       buttons={[
         { title: "About Us", href: "/about", type:"dark" },
       ]}
     />
-    <div className="grid grid-cols-1 md:grid-cols-3  p-4">
+    <div className="grid grid-cols-1 md:grid-cols-4  p-4">
       <ReactCountdown
         value="300"
         type="dollar-million"
@@ -27,6 +27,13 @@ export default function Home() {
         value="70"
         type="number"
         title="Years Combined Experience"
+        animate={true}
+        className="py-4 text-[#4f88a6] rounded-lg "
+      />
+      <ReactCountdown
+        value="22"
+        type="number"
+        title="States Served"
         animate={true}
         className="py-4 text-[#4f88a6] rounded-lg "
       />
