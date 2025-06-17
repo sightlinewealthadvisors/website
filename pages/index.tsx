@@ -34,7 +34,8 @@ export default function Home() {
     <ReactBody
       title="Your Financial Partner"
       description="Sightline Wealth Advisors takes a 360° perspective when creating your living financial plan. With our abundant experience, focus on client relationships and investment in unifying technology, we don't just advise our clients on single, unrelated investments. We partner with you to define your specific goals, assess your opportunities and challenges, and create a customized, holistic financial plan that lets you clearly see where you're going and how you'll get there."
-      imageUrl="/assets/home/monitorarrow.png"
+      // imageUrl="/assets/home/monitorarrow.png"
+      imageUrl="/assets/home/monitorarrow-blue.jpg"
       imageClassName="w-full h-auto rounded-lg "
       imageWidth={400}
       imageHeight={400}
@@ -104,7 +105,8 @@ export default function Home() {
       to a changing landscape in employee benefits and health care. More than 90 percent of our
        new clients are referred by existing clients, many of whom we’ve advised through the
         family life cycle of births, graduations, weddings, retirements and deaths."
-      imageUrl="/assets/home/service.png"
+      // imageUrl="/assets/home/service.png"
+      imageUrl="/assets/home/service-blue.jpg"
       imageClassName="w-full h-auto rounded-lg "
       imageWidth={400}
       imageHeight={400}
@@ -129,7 +131,8 @@ export default function Home() {
          helping our clients reduce taxes, maximize employer benefits, obtain appropriate levels 
          of insurance and maintain the right cash reserve. As your situation or the law evolves,
           we revisit your plan to adjust it to your new goals."
-      imageUrl="/assets/home/taxi.png"
+      // imageUrl="/assets/home/taxi.png"
+      imageUrl="/assets/home/taxi-blue.jpg"
       imageClassName="w-full h-auto rounded-lg "
       imageWidth={400}
       imageHeight={400}
@@ -149,7 +152,7 @@ export default function Home() {
        <ReactBody
       title="High Tech Keeps Track Of Your Portfolio."
       description="Sightline’s private, secure web portal offers a document vault, on-demand reports, and two-way online workflow communication and secure messaging via desktop or mobile. Our portal provides a consolidated portfolio view—bank accounts, 401(k), investment accounts, insurance policies and more—to create a living financial plan that’s updated in real time. That means we can spend less time managing documentation and more time understanding our clients as individuals."
-      imageUrl="/assets/home/stax.png"
+      imageUrl="/assets/home/stax-blue.jpg"
       imageClassName="w-full h-auto rounded-lg "
       imageWidth={400}
       imageHeight={400}
