@@ -119,7 +119,7 @@ const investmentManagementEvents: TimelineEvent[] = [
         buttons={[
           {
             title: "Form CRS March 2024",
-            href: "/uploads/form-crs-march-2024",
+            href: "/manuals/form-crs-march-2024",
             type: "dark",
           },
         ]}

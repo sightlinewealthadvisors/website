@@ -9,16 +9,25 @@ const navLinks = [
   { name: "Contact Us", href: "/contact" },
 ];
 
+const manualLinks = [
+  { name: "Form CRS March 2024", href: "/manuals/form-crs" },
+  { name: "Privacy Policy", href: "/manuals/privacy-policy" },
+  { name: "Disclosure", href: "/manuals/disclosure" },
+];
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
 
   return (
-    <nav className=" montserrat-regular bg-gray-950 bg-opacity-30  px-4 py-3 md:px-8 sticky top-0 z-50">
+    <nav suppressHydrationWarning={true} className="montserrat-regular bg-gray-950 bg-opacity-30 px-4 py-3 md:px-8 sticky top-0 z-50">
       <div className="flex items-center justify-between max-w-6xl mx-auto">
         <div className="text-xl font-bold text-[#63a6ca]">Business Firm</div>
+        
+        {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none"
+          className="md:hidden p-2 rounded focus:outline-none text-gray-300"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((v) => !v)}
         >
@@ -45,45 +54,80 @@ export default function Navbar() {
             )}
           </svg>
         </button>
-        <ul className="hidden md:flex space-x-6">
-          {navLinks.map((link) => {
-            const isActive =
-              link.href === "/"
+
+        {/* Desktop menu */}
+        <div className="hidden md:flex items-center space-x-6">
+          <ul className="flex items-center space-x-6">
+            {navLinks.map((link) => {
+              const isActive = link.href === "/" 
                 ? router.pathname === "/"
                 : router.pathname.startsWith(link.href);
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`px-3 py-2 text-lg rounded transition-colors font-medium ${
-                    isActive
-                      ? " text-[#63a6ca]"
-                      : "text-gray-300 hover:text-[#63a6ca]"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`px-3 py-2 text-lg rounded transition-colors font-medium ${
+                      isActive
+                        ? "text-[#63a6ca]"
+                        : "text-gray-300 hover:text-[#63a6ca]"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              );
+            })}
+            
+            {/* Manual Dropdown - Fixed positioning and styling */}
+            <li className="relative group">
+              <button
+                className="px-3 py-2 text-lg rounded transition-colors font-medium text-gray-300 hover:text-[#63a6ca] focus:outline-none flex items-center"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                Manuals
+                <span className="ml-1 text-xs">▼</span>
+              </button>
+              <ul className="absolute left-0 mt-2 w-48 bg-gray-950 bg-opacity-95 rounded-md shadow-lg py-1 hidden group-hover:block">
+                {manualLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-[#63a6ca]"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          </ul>
+
+          {/* Login Button */}
+          <Link
+            href="/login"
+            className="px-4 py-2 text-lg rounded-md bg-cyan-800 text-white hover:bg-cyan-950 transition-colors"
+          >
+            Login
+          </Link>
+        </div>
       </div>
-      {/* Mobile menu */}
+
+      {/* Mobile menu - Updated styling */}
       {menuOpen && (
-        <ul className="md:hidden mt-2  space-y-1 bg-white border-t border-gray-200 px-2 pb-2">
+        <ul className="md:hidden mt-2 space-y-1 bg-gray-950 bg-opacity-95 border-t border-gray-800 px-2 pb-2">
           {navLinks.map((link) => {
-            const isActive =
-              link.href === "/"
-                ? router.pathname === "/"
-                : router.pathname.startsWith(link.href);
+            const isActive = link.href === "/" 
+              ? router.pathname === "/"
+              : router.pathname.startsWith(link.href);
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   className={`block px-3 text-lg py-2 rounded transition-colors font-medium ${
                     isActive
-                      ? " text-[#63a6ca]"
-                      : "text-gray-700 hover:text-[#63a6ca]"
+                      ? "text-[#63a6ca]"
+                      : "text-gray-300 hover:text-[#63a6ca]"
                   }`}
                   onClick={() => setMenuOpen(false)}
                 >
@@ -92,6 +136,32 @@ export default function Navbar() {
               </li>
             );
           })}
+          
+          {/* Manual Links in Mobile Menu */}
+          <li className="border-t border-gray-800 pt-2">
+            <p className="px-3 py-2 text-lg font-medium text-[#63a6ca]">Manuals</p>
+            {manualLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block px-3 py-2 text-gray-300 hover:text-[#63a6ca] pl-6"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </li>
+          
+          {/* Login Button in Mobile Menu */}
+          <li className="pt-2">
+            <Link
+              href="/login"
+              className="block w-full bg-cyan-800 text-center px-3 py-2 text-lg rounded-md  text-white hover:bg-cyan-950"
+              onClick={() => setMenuOpen(false)}
+            >
+              Login
+            </Link>
+          </li>
         </ul>
       )}
     </nav>
