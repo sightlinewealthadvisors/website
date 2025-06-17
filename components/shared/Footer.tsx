@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-950 neuton-regular neuton-regular text-gray-300 py-10 mt-12">
+    <footer className="bg-gray-950 montserrat-regular montserrat-regular text-gray-300 py-10 mt-12">
       <div className="max-w-5xl mx-auto px-4 grid gap-8 md:grid-cols-3">
         {/* Locations */}
         <div>
@@ -25,8 +25,8 @@ export default function Footer() {
         </div>
         {/* Policy Links */}
         <div className="flex flex-col items-start md:items-end space-y-2">
-          <Link href="/disclosure" className="hover:underline text-gray-400 text-md">Disclosure</Link>
-          <Link href="/privacy-policy" className="hover:underline text-gray-400 text-md">Privacy Policy</Link>
+          <Link href="/manuals/disclosure" className="hover:underline text-gray-400 text-md">Disclosure</Link>
+          <Link href="/manuals/privacy-policy" className="hover:underline text-gray-400 text-md">Privacy Policy</Link>
         </div>
       </div>
       <div className="border-t border-gray-800 my-8" />

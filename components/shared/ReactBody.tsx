@@ -26,13 +26,13 @@ const ReactBody: React.FC<BodyProps> = ({
     title,
     description,
     imageUrl,
-    imageAlt = '',
     layout = 'text-left',
     titleClassName = '',
     descriptionClassName = '',
     containerClassName = '',
     imageClassName = '',
     contentWidth = 'max-w-7xl',
+    imageAlt = '',
     imageWidth = 600,
     imageHeight = 400,
     backgroundColor = 'bg-white',
@@ -76,7 +76,7 @@ const [isVisible, setIsVisible] = useState(false);
     return (
         <section 
             ref={componentRef}
-            className={`neuton-regular  py-16 ${backgroundColor} ${containerClassName}`}
+            className={`montserrat-regular  py-16 ${backgroundColor} ${containerClassName}`}
         >
             <div className={`mx-auto px-4 sm:px-6 lg:px-8 ${contentWidth}`}>
                 <div className="flex flex-col lg:flex-row justify-between items-center gap-12">

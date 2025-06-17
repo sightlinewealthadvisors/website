@@ -14,7 +14,7 @@ export default function Navbar() {
   const router = useRouter();
 
   return (
-    <nav className=" neuton-regular bg-gray-950 bg-opacity-30  px-4 py-3 md:px-8 sticky top-0 z-50">
+    <nav className=" montserrat-regular bg-gray-950 bg-opacity-30  px-4 py-3 md:px-8 sticky top-0 z-50">
       <div className="flex items-center justify-between max-w-6xl mx-auto">
         <div className="text-xl font-bold text-[#63a6ca]">Business Firm</div>
         <button

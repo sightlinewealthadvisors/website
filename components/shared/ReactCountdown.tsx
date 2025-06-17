@@ -100,7 +100,7 @@ const ReactCountdown: React.FC<CountdownProps> = ({
     return (
         <div 
             ref={componentRef}
-            className={`neuton-regular flex flex-col items-center text-center ${className}`}
+            className={`montserrat-regular flex flex-col items-center text-center ${className}`}
         >
             <div className="flex items-baseline justify-center">
                 {prefix && <span className="mr-1">{prefix}</span>}

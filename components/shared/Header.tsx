@@ -1,25 +1,26 @@
 import Link from "next/link";
 import React from "react";
 import { ReactButton } from "./ReactButton.tsx";
-import Shape from "./Shape.tsx";
 type HeaderProps = {
   title: string;
   className?: string;
   title2?: string;
   subtitle?: string;
   buttons?: ReactButton[];
+  right_component?: React.ReactNode;
 };
 
 export default function Header({
   title,
   title2,
   subtitle,
+  right_component,
   className,
   buttons,
 }: HeaderProps) {
   return (    
-    <header className={` ${className} opacity-in min-h-screen max-w-7xl  items-center neuton-regular  mx-auto flex 
-    flex-col md:flex-row pb-10 gap-8 px-4 lg:px-12`}>
+    <header className={` ${className} ${className?.includes('-h-') ? "min-h-screen" : ""} opacity-in max-w-7xl  items-center montserrat-regular  mx-auto flex 
+    flex-col md:flex-row py-10 gap-8 px-4 lg:px-12`}>
       <div className="flex w-full justify-center flex-col">
         <div className="relative w-fit">
           <h1 className="text-5xl  sm:text-5xl font-bold text-foreground">
@@ -33,7 +34,7 @@ export default function Header({
         </div>
         {subtitle && (
           <p
-            className="text-2xl text-gray-500 max-w-2xl mt-4"
+            className="text-2xl text-gray-300 max-w-2xl mt-4"
             style={{ animationDelay: "0.15s" }}
           >
             {subtitle}
@@ -55,7 +56,7 @@ export default function Header({
           </div>
         )}
       </div>
-      <div className="flex flex-col w-1/2"><Shape className={`neuton-bold backdrop-blur-xl text-white  text-4xl`}/>
+      <div className="flex flex-col w-1/2">{right_component}
 </div>
     </header>
   );

@@ -2,11 +2,12 @@ import Header from "@/components/shared/Header";
 import ReactBody from "@/components/shared/ReactBody";
 import ReactHeading from "@/components/shared/ReactHeading";
 import ReactCountdown from "@/components/shared/ReactCountdown";
+import Shape from "@/components/shared/Shape.tsx";
 
 export default function Home() {
   return (
   <> 
-  <div className="relative">
+  <div className="relative ">
     <video
       autoPlay
       muted
@@ -17,12 +18,13 @@ export default function Home() {
       <source src="/assets/home/sailbot.webm" type="video/webm" />
       <source src="/assets/videos/background.mp4" type="video/mp4" />
     </video>
-    <div className="relative z-10">
+    <div className="relative  z-10">
       <Header
-        title="A CLEAR VIEW OF"
-        title2="YOUR FINANCIAL FUTURE"
+        title="NAVIGATE YOUR"
+        title2="FINANCIAL JOURNEY"
         subtitle="Success requires a strategic vision."
-        className="text-white"
+        className="text-white pb-40 text-8xl min-h-screen"
+        right_component={<Shape className={`montserrat-bold backdrop-blur-xl text-white  text-4xl`}/>}
         buttons={[
           { title: "About Us", href: "/about", type:"dark" },
         ]}
@@ -53,7 +55,7 @@ export default function Home() {
       imageOrder="order-2"
     />
 
-     <div className="flex flex-row w-full items-center justify-center gap-40 px-4 sm:px-6 lg:px-8">
+     <div className="flex flex-row bg-white w-full items-center justify-center gap-40 px-4 sm:px-6 lg:px-8">
       <ReactCountdown
       value="300"
       type="dollar-million"
@@ -95,7 +97,7 @@ export default function Home() {
        align="center"
        color="default"
        withDivider={true}
-       containerClassName="pt-12"
+       containerClassName="pt-12 bg-white"
       />
       <ReactBody
       title="Knowledge, Experience and Service"

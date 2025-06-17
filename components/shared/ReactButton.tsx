@@ -16,9 +16,9 @@ const baseStyles =
     "px-7 py-2.5 text-lg rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2";
 
 const typeStyles: Record<ButtonType, string> = {
-    primary: "bg-blue-600  neuton-bold text-white hover:bg-blue-700",
-    dark: " bg-opacity-30 bg-cyan-800 backdrop-blur-xl neuton-bold text-white hover:bg-cyan-800",
-    gold: "bg-[#ffce2d] neuton-bold text-white hover:bg-yellow-400",
+    primary: "bg-blue-600  montserrat-bold text-white hover:bg-blue-700",
+    dark: " bg-opacity-30 bg-cyan-800 backdrop-blur-xl montserrat-bold text-white hover:bg-cyan-800",
+    gold: "bg-[#ffce2d] montserrat-bold text-white hover:bg-yellow-400",
 };
 
 export const ReactButton: React.FC<ButtonProps> = ({

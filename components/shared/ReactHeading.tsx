@@ -55,7 +55,7 @@ const ReactHeading: React.FC<ReactHeadingProps> = ({
 
     return (
         <div
-            className={` neuton-regular max-w-4xl mx-auto px-4 mb-8 ${alignClasses[align]} ${containerClassName}`}
+            className={` montserrat-regular w-full mx-auto px-4 py-12 ${alignClasses[align]} ${containerClassName}`}
         >
             <HeadingTag
                 className={`${titleSizeClasses[titleSize]} ${colorClasses[color]} mb-4 ${titleClassName}`}
@@ -69,7 +69,8 @@ const ReactHeading: React.FC<ReactHeadingProps> = ({
 
             {description && (
                 <p
-                    className={`${descriptionSizeClasses[descriptionSize]} text-gray-600 ${descriptionClassName}`}
+                    className={`${descriptionSizeClasses[descriptionSize]} text-center whitespace-pre-wrap
+ text-gray-600 ${descriptionClassName}`}
                 >
                     {description}
                 </p>
