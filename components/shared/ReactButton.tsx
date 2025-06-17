@@ -17,7 +17,7 @@ const baseStyles =
 
 const typeStyles: Record<ButtonType, string> = {
     primary: "bg-blue-600  montserrat-bold text-white hover:bg-blue-700",
-    dark: " bg-opacity-30 bg-cyan-800 backdrop-blur-xl montserrat-bold text-white hover:bg-cyan-800",
+    dark: " bg-opacity-30 bg-cyan-800 hover:bg-cyan-800 backdrop-blur-xl montserrat-bold text-white ",
     gold: "bg-[#ffce2d] montserrat-bold text-white hover:bg-yellow-400",
 };
 
