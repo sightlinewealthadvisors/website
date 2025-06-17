@@ -1,0 +1,86 @@
+
+@function makeShape($n, $t) {
+  $s: 'from \
+      calc( var(--u) * (var(--r) + var(--r) * cos(0))) \
+      calc(var(--u) * (var(--r) + var(--r) * sin(0))),';
+  
+  @for $i from 1 to $n {
+    $s: $s + 'line to \
+      calc( var(--u) * (var(--r) + var(--r) * cos(2 * pi * #{$i} / #{$n}))) \
+      calc(var(--u) * (var(--r) + var(--r) * sin(2 * pi * #{$i} / #{$n}))),'
+  }
+
+  @if $n < $t {
+    @for $i from $n to $t {
+      $s: $s + 'line to \
+        calc( var(--u) * (var(--r) + var(--r) * cos(2 * pi * #{$n - 1} / #{$n}))) \
+        calc(var(--u) * (var(--r) + var(--r) * sin(2 * pi * #{$n - 1} / #{$n}))),';
+    }
+  }
+
+  $s: $s + 'line to \
+        calc( var(--u) * (var(--r) + var(--r) * cos(0))) \
+        calc(var(--u) * (var(--r) + var(--r) * sin(0))), close';
+  @return $s;
+}
+
+:root {
+  --r: 25;
+  --u: 1vmin;
+}
+
+.shape {
+  aspect-ratio: 1;
+  place-self: center;
+  width: calc(var(--r) * 2 * var(--u));
+  clip-path: shape(#{makeShape(3,10)});
+  animation: change-me cubic-bezier(1, 0, 0, 1) 10s infinite alternate .2s;
+  --s2: calc(2deg * ((3 - 2) 180 / 3));
+  --s1: calc(1deg * ((3 - 2) 180 / 3));
+  background: repeating-conic-gradient(
+    from 90deg,
+    #00314e75,
+    #063a7287 calc(1deg * (180 - ((var(--i) - 2)*180 / var(--i))))
+  );
+  position: relative;
+
+   &:before {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    content: var(--text);
+    font-family: "Neuton", serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: pre;
+    
+}
+}
+$n: 10;
+@keyframes change-me {
+  @for $i from 3 through $n {
+    #{($i - 3) / ($n - 3) * 100%} {
+      --i: #{$i};
+      clip-path: shape(#{makeShape($i, $n)});
+      @if $i == 3 {
+        --text: 'Financial\A Planning';
+      } @else if $i == 4 {
+        --text: 'Wealth\A Growth';
+      } @else if $i == 5 {
+        --text: 'Investment\A Strategy';
+      } @else if $i == 6 {
+        --text: 'Portfolio\A Balance';
+      }@else if $i == 7 {
+        --text: 'Client\A Trust';
+      }@else if $i == 8 {
+        --text: 'Years of\A Experience';
+      }@else if $i == 9 {
+        --text: 'Excellence\A Matters';
+      }@else {
+        --text: 'Secure\A Future';
+      }
+    }
+  }
+}

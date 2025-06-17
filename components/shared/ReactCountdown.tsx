@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import { motion } from 'framer-motion';
 
 interface CountdownProps {
@@ -14,7 +14,6 @@ interface CountdownProps {
     duration?: number;
     type?: 'dollar' | 'number' | 'rate'; // Add new type prop
 }
-
 const ReactCountdown: React.FC<CountdownProps> = ({
     value,
     prefix = '',
@@ -26,10 +25,61 @@ const ReactCountdown: React.FC<CountdownProps> = ({
     valueClassName = '',
     titleClassName = '',
     duration = 2,
-    type = 'number', // Default type is number
+    type = 'number',
 }) => {
     const [count, setCount] = useState(0);
+    const [isVisible, setIsVisible] = useState(false);
+    const componentRef = useRef<HTMLDivElement>(null);
     const finalValue = typeof value === 'string' ? parseInt(value, 10) : value;
+
+    // Add intersection observer
+    useEffect(() => {
+        if (typeof window !== 'undefined' && animate) {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                        observer.disconnect();
+                    }
+                },
+                {
+                    threshold: 0.1
+                }
+            );
+
+            if (componentRef.current) {
+                observer.observe(componentRef.current);
+            }
+
+            return () => {
+                observer.disconnect();
+            };
+        }
+    }, [animate]);
+
+    // Modified animation effect to consider visibility
+    useEffect(() => {
+        if (animate && isVisible && !isNaN(finalValue)) {
+            const steps = 30;
+            const increment = finalValue / steps;
+            const stepDuration = (duration * 1000) / steps;
+
+            let currentCount = 0;
+            const timer = setInterval(() => {
+                currentCount += increment;
+                if (currentCount >= finalValue) {
+                    setCount(finalValue);
+                    clearInterval(timer);
+                } else {
+                    setCount(Math.floor(currentCount));
+                }
+            }, stepDuration);
+
+            return () => clearInterval(timer);
+        } else if (!animate) {
+            setCount(finalValue);
+        }
+    }, [finalValue, animate, duration, isVisible]);
 
     // Helper function to format the display value
     const getFormattedValue = (val: number | string) => {
@@ -47,39 +97,19 @@ const ReactCountdown: React.FC<CountdownProps> = ({
         }
     };
 
-    useEffect(() => {
-        if (animate && !isNaN(finalValue)) {
-            const steps = 30;
-            const increment = finalValue / steps;
-            const stepDuration = (duration * 1000) / steps;
-
-            let currentCount = 0;
-            const timer = setInterval(() => {
-                currentCount += increment;
-                if (currentCount >= finalValue) {
-                    setCount(finalValue);
-                    clearInterval(timer);
-                } else {
-                    setCount(Math.floor(currentCount));
-                }
-            }, stepDuration);
-
-            return () => clearInterval(timer);
-        } else {
-            setCount(finalValue);
-        }
-    }, [finalValue, animate, duration]);
-
     return (
-        <div className={`neuton-regular flex flex-col items-center text-center ${className}`}>
+        <div 
+            ref={componentRef}
+            className={`neuton-regular flex flex-col items-center text-center ${className}`}
+        >
             <div className="flex items-baseline justify-center">
                 {prefix && <span className="mr-1">{prefix}</span>}
                 {animate ? (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration }}
-                        className={`text-6xl  font-bold ${valueClassName}`}
+                        className={`text-6xl font-bold ${valueClassName}`}
                     >
                         {isNaN(finalValue) ? value : getFormattedValue(count)}
                     </motion.div>

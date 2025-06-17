@@ -5,46 +5,32 @@ import ReactCountdown from "@/components/shared/ReactCountdown";
 
 export default function Home() {
   return (
-  <>
-     <Header
-      title="A CLEAR VIEW OF"
-      title2="YOUR FINANCIAL FUTURE"
-      subtitle="Learn more about our mission and team."
-      className=""
-      buttons={[
-        { title: "About Us", href: "/about", type:"dark" },
-      ]}
-    />
-    <div className="grid grid-cols-1 md:grid-cols-4  p-4">
-      <ReactCountdown
-        value="300"
-        type="dollar-million"
-        title="Assets Under Management"
-        animate={true}
-        className="py-4 rounded-lg text-[#4f88a6]"
-      />
-      <ReactCountdown
-        value="70"
-        type="number"
-        title="Years Combined Experience"
-        animate={true}
-        className="py-4 text-[#4f88a6] rounded-lg "
-      />
-      <ReactCountdown
-        value="22"
-        type="number"
-        title="States Served"
-        animate={true}
-        className="py-4 text-[#4f88a6] rounded-lg "
-      />
-      <ReactCountdown
-        value="99"
-        type="rate"
-        title="Client Retention Rate"
-        animate={true}
-        className="py-4 text-[#4f88a6] rounded-lg"
+  <> 
+  <div className="relative">
+    <video
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="absolute inset-0 w-full h-full object-cover z-0"
+    >
+      <source src="/assets/home/sailbot.webm" type="video/webm" />
+      <source src="/assets/videos/background.mp4" type="video/mp4" />
+    </video>
+    <div className="relative z-10">
+      <Header
+        title="A CLEAR VIEW OF"
+        title2="YOUR FINANCIAL FUTURE"
+        subtitle="Success requires a strategic vision."
+        className="text-white"
+        buttons={[
+          { title: "About Us", href: "/about", type:"dark" },
+        ]}
       />
     </div>
+  </div>
+   
+    <div className="flex flex-col">
     <ReactBody
       title="Your Financial Partner"
       description="Sightline Wealth Advisors takes a 360° perspective when creating your living financial plan. With our abundant experience, focus on client relationships and investment in unifying technology, we don't just advise our clients on single, unrelated investments. We partner with you to define your specific goals, assess your opportunities and challenges, and create a customized, holistic financial plan that lets you clearly see where you're going and how you'll get there."
@@ -65,7 +51,41 @@ export default function Home() {
       contentOrder="order-1"
       imageOrder="order-2"
     />
-      <ReactHeading 
+
+     <div className="flex flex-row w-full items-center justify-center gap-40 px-4 sm:px-6 lg:px-8">
+      <ReactCountdown
+      value="300"
+      type="dollar-million"
+      title="Assets Under Management"
+      animate={true}
+      className="py-4 rounded-lg text-[#4f88a6]"
+      />
+      <ReactCountdown
+      value="70"
+      type="number"
+      title="Years Combined Experience"
+      animate={true}
+      className="py-4 text-[#4f88a6] rounded-lg "
+      />
+      <ReactCountdown
+      value="22"
+      type="number"
+      title="States Served"
+      animate={true}
+      className="py-4 text-[#4f88a6] rounded-lg "
+      />
+      <ReactCountdown
+      value="99"
+      type="rate"
+      title="Client Retention Rate"
+      animate={true}
+      className="py-4 text-[#4f88a6] rounded-lg"
+      />
+    </div>
+
+     
+    </div>
+     <ReactHeading 
        title="Why Sightline Wealth Advisors?"
        description="Experience the difference of working with a team that puts your financial 
        future first"

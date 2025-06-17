@@ -71,7 +71,7 @@ const [isVisible, setIsVisible] = useState(false);
         }
     }, [animate]);
     const animationClass = animate && isVisible ? 'fade-in' : 'opacity-0';
-    const imageAnimationClass = animate && isVisible ? 'fade-in-delay' : 'opacity-0';
+    const imageAnimationClass = animate && isVisible ? 'fade-in floating' : 'opacity-0';
 
     return (
         <section 
@@ -109,7 +109,7 @@ const [isVisible, setIsVisible] = useState(false);
                                     alt={imageAlt}
                                     width={imageWidth}
                                     height={imageHeight}
-                                    className={`rounded-lg ${imageAnimationClass}`}
+                                    className={`rounded-lg  ${imageAnimationClass}`}
                                 />
                             </div>
                         </div>
