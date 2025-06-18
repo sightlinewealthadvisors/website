@@ -51,7 +51,7 @@ export default function Home() {
           title="Your Financial Partner"
           description="Sightline Wealth Advisors takes a 360° perspective when creating your living financial plan. With our abundant experience, focus on client relationships and investment in unifying technology, we don't just advise our clients on single, unrelated investments. We partner with you to define your specific goals, assess your opportunities and challenges, and create a customized, holistic financial plan that lets you clearly see where you're going and how you'll get there."
           // imageUrl="/assets/home/monitorarrow.png"
-          imageUrl="/assets/home/monitorarrow-blue.jpg"
+          imageUrl="/logo.png"
           imageClassName="w-full h-auto rounded-lg "
           imageWidth={400}
           imageHeight={400}
@@ -167,6 +167,46 @@ export default function Home() {
         title="High Tech Keeps Track Of Your Portfolio."
         description="Sightline’s private, secure web portal offers a document vault, on-demand reports, and two-way online workflow communication and secure messaging via desktop or mobile. Our portal provides a consolidated portfolio view—bank accounts, 401(k), investment accounts, insurance policies and more—to create a living financial plan that’s updated in real time. That means we can spend less time managing documentation and more time understanding our clients as individuals."
         imageUrl="/assets/home/stax-blue.jpg"
+        imageClassName="w-full h-auto rounded-lg "
+        imageWidth={400}
+        imageHeight={400}
+        imageAlt="Financial Partner"
+        containerClassName="px-4 sm:px-6 lg:px-8"
+        titleColor="text-gray-900"
+        descriptionColor="text-gray-600"
+        showDivider={true}
+        animate={true}
+        layout="text-left"
+        titleClassName="text-3xl font-bold mb-4"
+        descriptionClassName="text-lg mb-6"
+        contentClassName="flex flex-col items-center text-center"
+        contentOrder="order-1"
+        imageOrder="order-2"
+      />
+      <ReactBody
+        title="Trusted, Personalized Wealth Planning."
+        description="We use cutting-edge technology to simplify your investment experience, from real-time portfolio tracking to seamless document sharing and communication. Our private portal keeps everything—from 401(k)s to insurance—organized and accessible. As a fee-only, SEC-registered investment advisory firm, we avoid conflicts of interest and prioritize low-cost strategies, using ETFs and institutional-class mutual funds to minimize fees and maximize your return. Our investment philosophy puts risk management before returns, aligning your portfolio with your long-term financial objectives and timeline."
+        imageUrl="/assets/home/coins.png"
+        imageClassName="w-full h-auto rounded-lg "
+        imageWidth={400}
+        imageHeight={400}
+        imageAlt="Financial Partner"
+        containerClassName="px-4 sm:px-6 lg:px-8"
+        titleColor="text-gray-900"
+        descriptionColor="text-gray-600"
+        showDivider={true}
+        animate={true}
+        layout="text-right"
+        titleClassName="text-3xl font-bold mb-4"
+        descriptionClassName="text-lg mb-6"
+        contentClassName="flex flex-col items-center text-center"
+        contentOrder="order-1"
+        imageOrder="order-2"
+      />
+      <ReactBody
+        title="Smart, Transparent Portfolio Management."
+        description="Sightline’s private, secure web portal offers a document vault, on-demand reports, and two-way online workflow communication and secure messaging via desktop or mobile. Our portal provides a consolidated portfolio view—bank accounts, 401(k), investment accounts, insurance policies and more—to create a living financial plan that’s updated in real time. That means we can spend less time managing documentation and more time understanding our clients as individuals."
+        imageUrl="/assets/home/monitorarrow-blue.jpg"
         imageClassName="w-full h-auto rounded-lg "
         imageWidth={400}
         imageHeight={400}

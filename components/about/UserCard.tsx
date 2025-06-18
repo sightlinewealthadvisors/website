@@ -53,7 +53,7 @@ export default function UserCard({
                     <p className="text-sm">{description}</p>
                     
                     {socialLinks && (
-                        <div className="my-2 montserrat-regular">
+                        <div className="mb-2 mt-4 text-sm montserrat-regular">
                             {socialLinks.linkedin && (
                                 <Link className="bg-cyan-800 hover:bg-cyan-800 py-2 px-4" href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</Link>
                             )}
@@ -65,6 +65,10 @@ export default function UserCard({
                             )}
                             {socialLinks.email && (
                                 <Link className="bg-cyan-800 hover:bg-cyan-800 py-2 px-4" href={`mailto:${socialLinks.email}`}>Email</Link>
+                            )}
+
+                            {socialLinks.login && (
+                                <Link className="bg-cyan-800 hover:bg-cyan-800 py-2 px-4" href={`${socialLinks.email}`}>Login</Link>
                             )}
                         </div>
                     )}

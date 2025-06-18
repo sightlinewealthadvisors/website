@@ -31,12 +31,8 @@ export default function index() {
         subtitle="Contact Sightline Wealth Advisors to learn how we can help you achieve your financial goals. "
         className="text-white text-8xl py-40"
         right_component={
-          <Image
-            src="/assets/services/plane-blue.png"
-            alt="Services"
-            width={500}
-            height={500}
-          />
+          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=13Dt9dLVsdhpuflcBjxwCqJpQEZrecOA&ehbc=2E312F&noprof=1" width="auto" height="400"></iframe>
+
         }
         buttons={[
           {
