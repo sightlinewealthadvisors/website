@@ -70,7 +70,9 @@ export default function Timeline({
             {events.map((event, index) => (
                 <div
                     key={index}
-                    ref={el => eventRefs.current[index] = el}
+                    ref={el => {
+                        eventRefs.current[index] = el;
+                    }}
                     className={`
                         timeline__event
                         ${event.type ? `timeline__event--${event.type}` : 'timeline__event--type1'}
