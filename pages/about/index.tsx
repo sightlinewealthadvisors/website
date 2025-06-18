@@ -4,13 +4,26 @@ import Image from "next/image";
 import ReactHeading from "@/components/shared/ReactHeading";
 import Timeline from "@/components/services/Timeline";
 import UserCard from "@/components/about/UserCard";
+import Head from 'next/head';
+
 export default function index() {
   return (
     <div>
+            <Head>
+        <title>About Us | Meet Our Team | Sightline Wealth Advisors</title>
+        <meta name="description" content="Meet our expert team of CFP® professionals and wealth advisors. With decades of combined experience, we provide personalized financial planning and investment management services." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="About Sightline Wealth Advisors | Expert Financial Planning Team" />
+        <meta property="og:description" content="Our team of certified financial planners includes Alex Pellish CFP®, Mark Steffen CFP®, and Mark Michna CFA®. Learn about our experienced advisors managing over $300M in assets." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/og-image.jpg" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Header
         title="Seasoned financial advisors"
         subtitle="Our relationship with you is our most important asset."
-        className="text-white text-8xl py-40"
+        className="text-white text-8xl "
         right_component={
           <Image
             src="/assets/about/advisors.png"

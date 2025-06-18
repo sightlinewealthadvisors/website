@@ -3,12 +3,8 @@ import '../../styles/timeline.scss';
 import Image from 'next/image';
 
 export interface TimelineEvent {
-    imageUrl: ReactNode;
     date: string;
     title: string;
-    imageWidth?: number;
-    imageHeight?: number;
-    imageAlt?: string;
     description: string | ReactNode;
     type?: 'type1' | 'type2' | 'type3';
     customClassName?: string;
@@ -82,13 +78,7 @@ export default function Timeline({
                     }}
                 >
                     <div className={`timeline__event__icon -z-20 ${visibleEvents[index] ? 'opacity-in' : 'opacity-out'}`}>
-                        <Image
-                            src={event.imageUrl}
-                            alt={event.imageAlt}
-                            width={event.imageWidth}
-                            height={event.imageHeight}
-                            className="rounded-lg"
-                        />
+                        
                     </div>
                     
                     {showDates && (

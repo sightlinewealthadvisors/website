@@ -3,13 +3,32 @@ import Header from "@/components/shared/Header";
 import Image from "next/image";
 import ReactHeading from "@/components/shared/ReactHeading";
 import Timeline from "@/components/services/Timeline";
+import Head from "next/head";
 
 export default function index() {
   return (
-    <div>
+    <div><Head>
+        <title>Contact Us | Sightline Wealth Advisors</title>
+        <meta 
+          name="description" 
+          content="Contact Sightline Wealth Advisors to discuss your financial goals. Our team of experienced advisors is ready to help guide your financial journey." 
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta 
+          property="og:title" 
+          content="Contact Sightline Wealth Advisors | Financial Planning & Investment Services" 
+        />
+        <meta 
+          property="og:description" 
+          content="Get in touch with Sightline Wealth Advisors to learn how we can help you achieve your financial goals through personalized wealth management solutions." 
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/assets/og-image.jpg" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header
-        title="Seasoned financial advisors"
-        subtitle="Our relationship with you is our most important asset."
+        title="We'll Help You Achieve Your Financial Goals"
+        subtitle="Contact Sightline Wealth Advisors to learn how we can help you achieve your financial goals. "
         className="text-white text-8xl py-40"
         right_component={
           <Image
@@ -21,22 +40,13 @@ export default function index() {
         }
         buttons={[
           {
-            title: "Form CRS March 2024",
-            href: "/manuals/form-crs-march-2024",
+            title: "info@sightlineaw.com",
+            href: "mailto:info@sightlineaw.com",
             type: "dark",
           },
         ]}
       />
-      <ReactHeading
-        title="Our Financial Planning Process"
-        description="We operate in accordance with the established financial planning process of the CFP® Board of Standards"
-        titleSize="xl"
-        descriptionSize="lg"
-        align="center"
-        color="default"
-        withDivider={true}
-        containerClassName="pt-12 bg-white"
-      />
+      
     </div>
   );
 }

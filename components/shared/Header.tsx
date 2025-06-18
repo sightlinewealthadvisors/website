@@ -18,9 +18,13 @@ export default function Header({
   className,
   buttons,
 }: HeaderProps) {
-  return (    
-    <header className={` ${className} ${className?.includes('-h-') ? "min-h-screen" : ""} opacity-in max-w-7xl  items-center montserrat-regular  mx-auto flex 
-    flex-col md:flex-row py-10 gap-8 px-4 lg:px-12`}>
+  return (
+    <header
+      className={` ${className} ${
+        className?.includes("-h-") ? "min-h-screen" : ""
+      } opacity-in md:max-w-7xl  items-center montserrat-regular  mx-auto flex 
+    flex-col md:flex-row py-10 gap-y-8 md:gap-8 px-4 lg:px-12`}
+    >
       <div className="flex w-full justify-center flex-col">
         <div className="relative w-fit">
           <h1 className="text-5xl  sm:text-5xl font-bold text-foreground">
@@ -56,8 +60,7 @@ export default function Header({
           </div>
         )}
       </div>
-      <div className="flex flex-col w-1/2">{right_component}
-</div>
+      <div className="flex flex-col w-full md:w-1/2">{right_component}</div>
     </header>
   );
 }

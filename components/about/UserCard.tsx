@@ -50,7 +50,7 @@ export default function UserCard({
                 <div className={`text backdrop-blur-2xl ${textClassName}`}>
                     <h2 className="montserrat-bold">{name}</h2>
                     {title && <h3 className="text-[#63a6ca] montserrat-bold">{title}</h3>}
-                    <p>{description}</p>
+                    <p className="text-sm">{description}</p>
                     
                     {socialLinks && (
                         <div className="my-2 montserrat-regular">
